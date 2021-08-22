@@ -253,7 +253,7 @@ return string{};
 
 // DONE: Read and return the uptime of a process
 // REMOVE: [[maybe_unused]] once you define the function
-long int LinuxParser::UpTime(int pid[[maybe_unused]]) {
+long int LinuxParser::UpTime(int pid) {
   string line;
   long int uptime;
   string value;
