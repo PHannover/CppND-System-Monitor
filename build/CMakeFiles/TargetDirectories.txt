@@ -1,3 +1,0 @@
-/mnt/c/Users/phili/Documents/Udacity/Intro_to_OOP/CppND-System-Monitor/build/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/phili/Documents/Udacity/Intro_to_OOP/CppND-System-Monitor/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/phili/Documents/Udacity/Intro_to_OOP/CppND-System-Monitor/build/CMakeFiles/monitor.dir
