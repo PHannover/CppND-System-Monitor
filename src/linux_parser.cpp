@@ -110,18 +110,6 @@ long LinuxParser::UpTime() {
   return stol(string_uptime);
 }
 
-/* // TODO: Read and return the number of jiffies for the system
-long LinuxParser::Jiffies() { return 0; }
-
-// TODO: Read and return the number of active jiffies for a PID
-// REMOVE: [[maybe_unused]] once you define the function
-long LinuxParser::ActiveJiffies(int pid[[maybe_unused]]) { return 0; }
-
-// TODO: Read and return the number of active jiffies for the system
-long LinuxParser::ActiveJiffies() { return 0; }
-
-// TODO: Read and return the number of idle jiffies for the system
-long LinuxParser::IdleJiffies() { return 0; } */
 
 // DONE: Read and return CPU utilization
 vector<string> LinuxParser::CpuUtilization() {
@@ -178,7 +166,6 @@ int LinuxParser::RunningProcesses() {
   }
 
 // DONE: Read and return the command associated with a process
-// REMOVE: [[maybe_unused]] once you define the function
 string LinuxParser::Command(int pid) {
   string line;
   std::ifstream stream(kProcDirectory + std::to_string(pid) + kCmdlineFilename);
@@ -189,7 +176,6 @@ string LinuxParser::Command(int pid) {
 }
 
 // DONE: Read and return the memory used by a process
-// REMOVE: [[maybe_unused]] once you define the function
 string LinuxParser::Ram(int pid) { 
   string line;
   string key;
@@ -209,7 +195,6 @@ string LinuxParser::Ram(int pid) {
 }
 
 // DONE: Read and return the user ID associated with a process
-// REMOVE: [[maybe_unused]] once you define the function
 string LinuxParser::Uid(int pid) {
   string line;
   string key;
@@ -228,7 +213,6 @@ string LinuxParser::Uid(int pid) {
   }
 
 // DONE: Read and return the user associated with a process
-// REMOVE: [[maybe_unused]] once you define the function
 string LinuxParser::User(int pid) {
   string Uid{LinuxParser::Uid(pid)};
   string line;
@@ -252,7 +236,6 @@ return string{};
 }
 
 // DONE: Read and return the uptime of a process
-// REMOVE: [[maybe_unused]] once you define the function
 long int LinuxParser::UpTime(int pid) {
   string line;
   long int uptime;
@@ -266,13 +249,12 @@ long int LinuxParser::UpTime(int pid) {
     while(linestream >> value){
       values.push_back(value);
     }
-    uptime = stol(values[21])/sysconf(_SC_CLK_TCK);
+    uptime = UpTime() - stol(values[21])/sysconf(_SC_CLK_TCK);
   }  
   return uptime;
 }
 
-// DONE: Read and return the uptime of a process
-// REMOVE: [[maybe_unused]] once you define the function
+// DONE: Read and return the CPU utilization of a process
 float LinuxParser::ProcessCpuUtilization(int pid){
   string line;
   float uptime;
